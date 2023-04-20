@@ -1,0 +1,22 @@
+---
+# Created By : Krutika
+# Date: 10 april 2023
+# Purpose:  This YAML will add,commit and push specific files
+
+- name: add commit and push files
+  hosts:  localhost
+
+  tasks:
+
+  - name: add commit and push VERSION and .bumpversion.cfg
+    git_acp:
+      path: \home\krutika_bhise\workdir\personal_repo\deployment_commits\main\deployment-commits\
+      comment: "add  VERSION and .bumpversion.cfg"
+      add: [ "VERSION", ".bumpversion.cfg" ]
+      branch: main
+      pull: true
+      mode: local
+      url: //github.com/krutikabhise/deployment-commits.git
+      
+        
+
