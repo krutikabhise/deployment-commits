@@ -16,6 +16,7 @@
       branch: develop
       pull: true
       # push: true
+      push_force: true
       mode: local
       url: //github.com/krutikabhise/deployment-commits.git
       
