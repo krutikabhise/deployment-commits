@@ -5,14 +5,11 @@
 
 - name: add commit and push files
   hosts:  localhost
-  collections:
-    - lvrfrc87.git_acp
 
   tasks:
 
   - name: add commit and push VERSION and .bumpversion.cfg
-    # git_acp:
-    environment:
+    git_acp:
       path: \home\krutika_bhise\workdir\personal_repo\deployment_commits\develop\deployment-commits\
       comment: "add  VERSION and .bumpversion.cfg"
       add: [ "VERSION", ".bumpversion.cfg" ]
