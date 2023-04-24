@@ -15,7 +15,7 @@
       add: [ "VERSION", ".bumpversion.cfg" ]
       branch: develop
       pull: true
-      push_option: true
+      push: true
       mode: local
       url: //github.com/krutikabhise/deployment-commits.git
       
