@@ -14,11 +14,10 @@
       comment: "add  VERSION and .bumpversion.cfg"
       add: [ "VERSION", ".bumpversion.cfg" ]
       branch: develop
-      pull: true
-      # push: true
+      push: true
       # push_force: true
       mode: local
-      url: //github.com/krutikabhise/deployment-commits.git
+      url: "git@github.com:krutikabhise/deployment-commits.git"
       
         
 
