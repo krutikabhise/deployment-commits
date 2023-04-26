@@ -8,8 +8,8 @@
 
   tasks:
     - name: activate venv
-      ansible.builtin.pip:
-        # name: bump2version
+      pip:
+        name: bump2version
         virtualenv: /home/krutika_bhise/workdir/personal_repo/venv
         virtualenv_command: bump2version --tag patch
         chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
