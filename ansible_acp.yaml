@@ -8,16 +8,23 @@
 
   tasks:
 
-  - name: add commit and push VERSION and .bumpversion.cfg
+  - name: add and commit VERSION and .bumpversion.cfg
     git_acp:
       path: \home\krutika_bhise\workdir\personal_repo\deployment_commits\develop\deployment-commits\
       comment: "add  VERSION and .bumpversion.cfg"
       add: [ "VERSION", ".bumpversion.cfg" ]
       branch: develop
-      push: true
+      pull: true
+      # push: true
       # push_force: true
-      mode: local
+      mode: ssh
       url: "git@github.com:krutikabhise/deployment-commits.git"
+
+  - name: push files
+    ansible.builtin.command:
+      cmd: "git push"
+      chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/main/deployment-commits
+
       
         
 
