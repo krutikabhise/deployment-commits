@@ -8,27 +8,27 @@
 
   tasks:
     
-    - name: pull files
-      ansible.builtin.git:
-        repo: "git@github.com:krutikabhise/deployment-commits.git"
-        dest: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
-        # update: yes
-        version: devlop
+    # - name: pull files
+    #   ansible.builtin.git:
+    #     repo: "git@github.com:krutikabhise/deployment-commits.git"
+    #     dest: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
+    #     # update: yes
+    #     version: devlop
         
 
     - name: add files
-      ansible.builtin.command:
-        cmd: "git add VERSION, .bumpversion.cfg"
-        chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
+      ansible.builtin.shell:
+        cmd: git add VERSION .bumpversion.cfg && git commit -m "modified VERSION and .bumpversion.cfg"
+        chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits/
         
-    - name: commit files
-      ansible.builtin.command:
-        cmd: "git commit -m 'modified VERSION and .bumpversion.cfg'"
-        chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
+    # - name: commit files
+    #   ansible.builtin.shell:
+    #     cmd: git commit -m "modified VERSION and .bumpversion.cfg"
+    #     chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
 
     - name: pull files
       ansible.builtin.command:
-        url: "git@github.com:krutikabhise/deployment-commits.git"
+        # url: "git@github.com:krutikabhise/deployment-commits.git"
         chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
         update: yes
         version: develop
