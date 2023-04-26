@@ -7,48 +7,25 @@
   hosts:  localhost
 
   tasks:
-    
-    # - name: pull files
-    #   ansible.builtin.git:
-    #     repo: "git@github.com:krutikabhise/deployment-commits.git"
-    #     dest: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
-    #     # update: yes
-    #     version: devlop
+  
     - name: add tag
-      ansible.builtin.command:
-        cmd: bump2version --tag patch
-        chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits/
-        
-
+      ansible.builtin.shell:
+        cmd: "bump2version --tag patch"
+        chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
+      
     - name: add files
       ansible.builtin.shell:
         cmd: git add VERSION .bumpversion.cfg && git commit -m "modified VERSION and .bumpversion.cfg"
-        chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits/
-        
-    # - name: commit files
-    #   ansible.builtin.shell:
-    #     cmd: git commit -m "modified VERSION and .bumpversion.cfg"
-    #     chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
+        chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
 
     - name: pull files
       ansible.builtin.command:
-        # url: "git@github.com:krutikabhise/deployment-commits.git"
         cmd: git pull
         chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
-        # update: yes
-        # version: develop
+        update: yes
+        version: develop
 
     - name: push files
       ansible.builtin.command:
         cmd: git push
         chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
-        
-    # - name: merge files
-    #   ansible.builtin.command:
-    #     cmd: git merge origin/master
-    #     chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/main/deployment-commits
-
-    # - name: push files
-    #   ansible.builtin.command:
-    #     cmd: "git push"
-    #     chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/main/deployment-commits
