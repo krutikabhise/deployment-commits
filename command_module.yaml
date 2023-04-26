@@ -7,11 +7,17 @@
   hosts:  localhost
 
   tasks:
-  
-    - name: add tag
+    - name: activate venv
       ansible.builtin.shell:
+        cmd: . venv/bin/activate
+        chdir: /home/krutika_bhise/workdir/personal_repo
         cmd: "bump2version --tag patch"
         chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
+        
+    # - name: add tag
+    #   ansible.builtin.shell:
+    #     cmd: "bump2version --tag patch"
+    #     chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
       
     - name: add files
       ansible.builtin.shell:
@@ -22,10 +28,13 @@
       ansible.builtin.command:
         cmd: git pull
         chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
-        # update: yes
-        # version: develop
-
+      
     - name: push files
       ansible.builtin.command:
         cmd: git push
         chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
+
+    - name: deactivate venv
+      ansible.builtin.shell:
+        cmd: deactivate
+        # chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
