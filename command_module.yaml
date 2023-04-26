@@ -22,8 +22,8 @@
       ansible.builtin.command:
         cmd: git pull
         chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
-        update: yes
-        version: develop
+        # update: yes
+        # version: develop
 
     - name: push files
       ansible.builtin.command:
