@@ -14,6 +14,10 @@
     #     dest: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
     #     # update: yes
     #     version: devlop
+    - name: add tag
+      ansible.builtin.command:
+        cmd: bump2version --tag patch
+        chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits/
         
 
     - name: add files
