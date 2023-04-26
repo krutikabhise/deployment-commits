@@ -36,13 +36,13 @@
 
     - name: push files
       ansible.builtin.command:
-        cmd: "git push"
+        cmd: git push
         chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/develop/deployment-commits
         
-    - name: merge files
-      ansible.builtin.command:
-        cmd: git merge origin/master
-        chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/main/deployment-commits
+    # - name: merge files
+    #   ansible.builtin.command:
+    #     cmd: git merge origin/master
+    #     chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/main/deployment-commits
 
     - name: push files
       ansible.builtin.command:
