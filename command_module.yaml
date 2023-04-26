@@ -44,7 +44,7 @@
     #     cmd: git merge origin/master
     #     chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/main/deployment-commits
 
-    - name: push files
-      ansible.builtin.command:
-        cmd: "git push"
-        chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/main/deployment-commits
+    # - name: push files
+    #   ansible.builtin.command:
+    #     cmd: "git push"
+    #     chdir: /home/krutika_bhise/workdir/personal_repo/deployment_commits/main/deployment-commits
